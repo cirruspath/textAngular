@@ -2,7 +2,7 @@
 @license textAngular
 Author : Austin Anderson
 License : 2013 MIT
-Version 1.5.16
+Version 1.7.2
 
 See README.md or https://github.com/fraywing/textAngular/wiki for requirements and use.
 */
@@ -457,7 +457,7 @@ angular.module('textAngular.factories', [])
         try {
             safe = $sanitize(unsafe);
             // do this afterwards, then the $sanitizer should still throw for bad markup
-            if(ignore) safe = unsafe;
+            if(ignore) safe = unsafe.valueOf();
         } catch (e){
             safe = oldsafe || '';
         }
