@@ -1,16 +1,16 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
-    define('textAngular', ["rangy","rangy/lib/rangy-selectionsaverestore"], function (a0,b1) {
+    define('textAngular', ["rangy","rangy-updated/lib/rangy-selectionsaverestore"], function (a0,b1) {
       return (root['textAngular.name'] = factory(a0,b1));
     });
-  } else if (typeof exports === 'object') {
+  } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
-    module.exports = factory(require("rangy"),require("rangy/lib/rangy-selectionsaverestore"));
+    module.exports = factory(require("rangy"),require("rangy-updated/lib/rangy-selectionsaverestore"));
   } else {
-    root['textAngular'] = factory(rangy);
+    root['textAngular'] = factory(root["rangy"]);
   }
 }(this, function (rangy) {
 
@@ -1032,7 +1032,7 @@ angular.module('textAngularSetup', [])
 @license textAngular
 Author : Austin Anderson
 License : 2013 MIT
-Version 1.5.16
+Version 1.7.2
 
 See README.md or https://github.com/fraywing/textAngular/wiki for requirements and use.
 */
@@ -1487,7 +1487,7 @@ angular.module('textAngular.factories', [])
         try {
             safe = $sanitize(unsafe);
             // do this afterwards, then the $sanitizer should still throw for bad markup
-            if(ignore) safe = unsafe;
+            if(ignore) safe = unsafe.valueOf();
         } catch (e){
             safe = oldsafe || '';
         }

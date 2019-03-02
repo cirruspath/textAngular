@@ -1,6 +1,6 @@
 {
-  "name": "textangular",
-  "version": "1.5.16",
+  "name": "@cirrus-insight/textangular",
+  "version": "1.7.2",
   "description": "A radically powerful Text-Editor/Wysiwyg editor for Angular.js",
   "maintainers": [
     {

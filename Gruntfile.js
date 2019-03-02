@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('release:minor', ['bump-only:minor','setVersion','compile','demo_pages','conventionalChangelog','shell:changelog','gitcommit','bump-commit', 'shell:publish']);
 	grunt.registerTask('release:major', ['bump-only:major','setVersion','compile','demo_pages','conventionalChangelog','shell:changelog','gitcommit','bump-commit', 'shell:publish']);
 	grunt.registerTask('release:prerelease', ['bump-only:prerelease','setVersion','demo_pages','compile','conventionalChangelog','shell:changelog','gitcommit','bump-commit', 'shell:publish']);
-	
+
 	grunt.registerTask('setVersion', function () {
 		var pkgJson = require('./package.json');
 		var version = pkgJson.version;
@@ -203,8 +203,8 @@ module.exports = function (grunt) {
 					amdModuleId: 'textAngular',
 					deps: {
 						'default': ['rangy'],
-						cjs: ['rangy', {'rangy/lib/rangy-selectionsaverestore': ''}],
-						amd: ['rangy', {'rangy/lib/rangy-selectionsaverestore': ''}]
+						cjs: ['rangy', {'rangy-updated/lib/rangy-selectionsaverestore': ''}],
+						amd: ['rangy', {'rangy-updated/lib/rangy-selectionsaverestore': ''}]
 					}
 				}
 			}

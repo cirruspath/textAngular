@@ -263,7 +263,7 @@ angular.module('textAngular.factories', [])
         try {
             safe = $sanitize(unsafe);
             // do this afterwards, then the $sanitizer should still throw for bad markup
-            if(ignore) safe = unsafe;
+            if(ignore) safe = unsafe.valueOf();
         } catch (e){
             safe = oldsafe || '';
         }
